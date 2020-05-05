@@ -40,9 +40,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> respostas = questionExists
-        ? _perguntas[_perguntaselecionada]["resposta"]
-        : null;
+    List<String> respostas =
+        questionExists ? _perguntas[_perguntaselecionada]["resposta"] : null;
 
     return MaterialApp(
       home: Scaffold(
@@ -56,7 +55,14 @@ class _PerguntaAppState extends State<PerguntaApp> {
                   ...respostas.map((r) => Resposta(r, _responder)).toList(),
                 ],
               )
-            : null,
+            : Center(
+                child: Text(
+                  'Parabéns',
+                  style: TextStyle(
+                    fontSize: 28,
+                  ),
+                ),
+              ),
       ),
     );
   }
