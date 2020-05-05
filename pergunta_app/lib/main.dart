@@ -19,15 +19,19 @@ class _PerguntaAppState extends State<PerguntaApp> {
     print(_perguntaselecionada);
   }
 
-  final List<String> perguntas = [
-    'Qual sua cor favorita ?',
-    'Qual seu animal favorito?'
-  ];
-
-  final List<String> resposta = [
-    'resposta 1',
-    'resposta 2',
-    'resposta 3'
+  final perguntas = [
+    {
+      "pergunta": "Qual sua cor favorita?",
+      "resposta": ['Preto', 'Vermelho', 'Amarelo', 'Verde']
+    },
+    {
+      "pergunta": "Qual seu animal favorito?",
+      "resposta": ['Cachorro', 'Gato', 'Leão', 'Raposa']
+    },
+    {
+      "pergunta": "Qual seu instrutor favorito?",
+      "resposta": ['Diego', 'Max', 'Leo', 'Matheus']
+    }
   ];
 
   @override
@@ -39,10 +43,10 @@ class _PerguntaAppState extends State<PerguntaApp> {
         ),
         body: Column(
           children: <Widget>[
-            Questao(perguntas.elementAt(_perguntaselecionada)),
-            Resposta(resposta.elementAt(0), _responder),
-            Resposta(resposta.elementAt(1), _responder),
-            Resposta(resposta.elementAt(2), _responder),
+            Questao(perguntas[_perguntaselecionada]["pergunta"]),
+            Resposta('Resposta 1', _responder),
+            Resposta('Resposta 2', _responder),
+            Resposta('Resposta 3', _responder),
           ],
         ),
       ),
