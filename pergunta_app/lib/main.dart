@@ -40,9 +40,9 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: <Widget>[
             Questao(perguntas.elementAt(_perguntaselecionada)),
-            Resposta(resposta.elementAt(0)),
-            Resposta(resposta.elementAt(1)),
-            Resposta(resposta.elementAt(2)),
+            Resposta(resposta.elementAt(0), _responder),
+            Resposta(resposta.elementAt(1), _responder),
+            Resposta(resposta.elementAt(2), _responder),
           ],
         ),
       ),
