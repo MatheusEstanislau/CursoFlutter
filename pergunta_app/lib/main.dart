@@ -11,6 +11,7 @@ class PerguntaApp extends StatefulWidget {
 }
 
 class _PerguntaAppState extends State<PerguntaApp> {
+  
   var _perguntaselecionada = 0;
   void _responder() {
     setState(() {
@@ -18,6 +19,8 @@ class _PerguntaAppState extends State<PerguntaApp> {
     });
     print(_perguntaselecionada);
   }
+  @override
+  Widget build(BuildContext context) {
 
   final perguntas = [
     {
@@ -34,8 +37,15 @@ class _PerguntaAppState extends State<PerguntaApp> {
     }
   ];
 
-  @override
-  Widget build(BuildContext context) {
+  List<Widget> answers = [];
+  
+  for(var answersText in perguntas[_perguntaselecionada]["resposta"]){
+    answers.add(Resposta(answersText, _responder));
+  }
+  
+
+  
+    
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -44,9 +54,7 @@ class _PerguntaAppState extends State<PerguntaApp> {
         body: Column(
           children: <Widget>[
             Questao(perguntas[_perguntaselecionada]["pergunta"]),
-            Resposta('Resposta 1', _responder),
-            Resposta('Resposta 2', _responder),
-            Resposta('Resposta 3', _responder),
+            ...answers,
           ],
         ),
       ),
